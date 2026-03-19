@@ -1,0 +1,94 @@
+/* THEME OVERRIDES */
+:root,
+[data-bs-theme="dark"] {
+  --bs-black: #000000;
+  --bs-white: #ffffff;
+
+  /* Backgrounds */
+  --bs-body-bg: #000000;
+  --bs-body-bg-rgb: 0, 0, 0;
+  --bs-tertiary-bg: #000000;
+
+  /* Text */
+  --bs-body-color: #ffffff;
+  --bs-body-color-rgb: 255, 255, 255;
+
+  /* Borders */
+  --bs-border-color: #333333;
+}
+
+/* BASE STYLES */
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+  color: #ffffff !important;
+}
+
+main {
+  min-height: 70vh;
+}
+
+@media (min-width: 992px) {
+  .logo {
+    font-size: 2rem;
+  }
+}
+
+/* TYPOGRAPHY */
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+h3 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+h4 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+h5 {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+h6 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* COMPONENTS */
+.nav-link {
+  transition: opacity 0.3s ease;
+}
+.nav-link:hover {
+  opacity: 0.6;
+}
+
+.navbar-toggler {
+  border: none;
+  filter: invert(1);
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.btn-outline-light:hover {
+  color: #000 !important;
+}
+
+/* Utility */
+.light-text {
+  font-weight: 200;
+}
