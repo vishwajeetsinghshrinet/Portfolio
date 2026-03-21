@@ -33,7 +33,7 @@ body {
 }
 
 main {
-  min-height: 70vh;
+  /* min-height: 70vh; */
 }
 
 @media (min-width: 992px) {
@@ -89,6 +89,12 @@ h6 {
 }
 
 /* Utility */
+
+.bigger-text {
+  font-size: 5rem !important;
+  font-weight: 900 !important;
+}
+
 .light-text {
   font-weight: 200;
 }
