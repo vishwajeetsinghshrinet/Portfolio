@@ -102,7 +102,7 @@ h6 {
 /* =============================== Page CSS =============================== */
 
 .banner-home {
-  background: url("/assets/images/image-vs-2.jpg");
+  background: url("./assets/images/image-vs-2.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
