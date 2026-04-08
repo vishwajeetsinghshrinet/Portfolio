@@ -99,11 +99,121 @@ h6 {
   font-weight: 200;
 }
 
-/* =============================== Page CSS =============================== */
+/* =============================== Page CSS Start =============================== */
 
-.banner-home {
-  background: url("./assets/images/image-vs-2.jpg");
+.home-banner {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/image-vs-2.jpg");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
+  min-height: 70vh;
+}
+
+/* =============================== Page CSS END =============================== */
+
+/* ANIMATION GLOBAL */
+
+/* Initial hidden state */
+[class*="fade-"] > * {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Animation trigger (added via JS) */
+.animate > * {
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Delay system */
+.animate > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.animate > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.animate > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.animate > *:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.animate > *:nth-child(5) {
+  animation-delay: 1s;
+}
+.animate > *:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+/* Directions */
+
+/* LEFT */
+.fade-left > * {
+  transform: translateX(50px);
+}
+.animate.fade-left > * {
+  animation-name: fadeLeft;
+}
+
+@keyframes fadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* RIGHT */
+.fade-right > * {
+  transform: translateX(-50px);
+}
+.animate.fade-right > * {
+  animation-name: fadeRight;
+}
+
+@keyframes fadeRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* UP */
+.fade-up > * {
+  transform: translateY(50px);
+}
+.animate.fade-up > * {
+  animation-name: fadeUp;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* DOWN */
+.fade-down > * {
+  transform: translateY(-50px);
+}
+.animate.fade-down > * {
+  animation-name: fadeDown;
+}
+
+@keyframes fadeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Prevent overflow issues */
+.fade-left,
+.fade-right,
+.fade-up,
+.fade-down {
+  overflow: hidden;
 }
