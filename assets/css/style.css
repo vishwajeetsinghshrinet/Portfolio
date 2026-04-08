@@ -111,6 +111,75 @@ h6 {
   min-height: 70vh;
 }
 
+/* ================= SKILL STRIP ================= */
+
+.skills-strip {
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* row */
+.skills-strip .strip {
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.skills-strip .track {
+  display: inline-flex;
+  gap: 20px;
+}
+
+.skills-strip .track span {
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.skills-strip .track span:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.skills-strip .row-left .track {
+  animation: skillsScrollLeft 20s linear infinite;
+}
+
+.skills-strip .row-right .track {
+  animation: skillsScrollRight 20s linear infinite;
+}
+
+@keyframes skillsScrollLeft {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes skillsScrollRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.skills-strip .strip:hover .track {
+  animation-play-state: paused;
+}
+
 /* =============================== Page CSS END =============================== */
 
 /* ANIMATION GLOBAL */
