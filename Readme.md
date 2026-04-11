@@ -1,1 +1,1 @@
-## Live Site: https://vishwajeetsinghshrinet.github.io/Portfolio/
+## Live Site: https://vishwajeetsinghshrinet.github.io/portfolio/
