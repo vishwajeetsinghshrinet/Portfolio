@@ -147,6 +147,37 @@
             </div>
         </section>
 
+        <section>
+            <div class="container">
+  <h2>Contact Me</h2>
+
+  <form id="contact-form" action="https://formspree.io/f/xwvwgvrr" method="POST">
+    
+    <input type="text" name="name" placeholder="Your Name">
+
+    <input type="tel" name="phone" placeholder="Your Phone">
+
+    <input type="email" name="email" placeholder="Your Email *" required>
+
+    <select name="purpose" required>
+      <option value="">Select Purpose *</option>
+      <option>WordPress Development</option>
+      <option>Hiring</option>
+      <option>Shopify Development</option>
+      <option>Magento Development</option>
+      <option>Custom Development</option>
+      <option>Other</option>
+    </select>
+
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <p id="status"></p>
+</div>
+        </section>
+
     </main>
     <div id="footer"></div>
     <script src="./assets/js/layout.js"></script>
