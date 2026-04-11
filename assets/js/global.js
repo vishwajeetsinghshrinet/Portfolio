@@ -73,3 +73,28 @@ const labelObserver = new IntersectionObserver(
 labels.forEach((label) => {
   labelObserver.observe(label);
 });
+
+// Contact Form Validation 
+const form = document.getElementById("contact-form");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if (response.ok) {
+    status.innerHTML = "✅ Message sent successfully!";
+    form.reset();
+  } else {
+    status.innerHTML = "❌ Something went wrong. Try again.";
+  }
+});
