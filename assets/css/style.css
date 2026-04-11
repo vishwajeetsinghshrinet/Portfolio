@@ -197,6 +197,49 @@ h6 {
   transform: scale(1.1);
 }
 
+/* Contact Form  */
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#status {
+  text-align: center;
+  margin-top: 10px;
+}
+
 /* =============================== Page CSS END =============================== */
 
 /* ANIMATION GLOBAL */
