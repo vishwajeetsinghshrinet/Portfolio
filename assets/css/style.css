@@ -32,10 +32,6 @@ body {
   color: #ffffff !important;
 }
 
-main {
-  /* min-height: 70vh; */
-}
-
 @media (min-width: 992px) {
   .logo {
     font-size: 2rem;
@@ -108,7 +104,7 @@ h6 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  min-height: 70vh;
+  min-height: 90vh;
 }
 
 /* ================= SKILL STRIP ================= */
@@ -544,4 +540,29 @@ h6 {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+header.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background: transparent;
+  transition:
+    background 0.28s ease,
+    box-shadow 0.28s ease,
+    padding 0.2s ease;
+  border-bottom: none;
+}
+
+header.site-header .navbar {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+header.site-header.scrolled {
+  background: rgba(0, 0, 0, 0.72);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }

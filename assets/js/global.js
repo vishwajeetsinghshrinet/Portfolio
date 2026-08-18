@@ -52,6 +52,60 @@ function typeEffect(element) {
   }, 100); // typing speed
 }
 
+// Sticky header setup: make header fixed/transparent at top and add scrolled state on scroll
+(function setupStickyHeader() {
+  function applyHeaderBehavior(headerEl) {
+    if (!headerEl) return;
+    headerEl.classList.add("site-header");
+
+    function onScroll() {
+      if (window.scrollY > 20) {
+        headerEl.classList.add("scrolled");
+      } else {
+        headerEl.classList.remove("scrolled");
+      }
+    }
+
+    // initial check
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  // Try to find header; header is injected into #header, so observe that container
+  var headerContainer = document.getElementById("header");
+
+  if (headerContainer) {
+    // If header element already present
+    var headerEl =
+      headerContainer.querySelector("header") ||
+      document.querySelector("header");
+    if (headerEl) {
+      applyHeaderBehavior(headerEl);
+      return;
+    }
+
+    // Otherwise, watch for insertion
+    var mo = new MutationObserver(function (mutations, obs) {
+      var h =
+        headerContainer.querySelector("header") ||
+        document.querySelector("header");
+      if (h) {
+        applyHeaderBehavior(h);
+        obs.disconnect();
+      }
+    });
+
+    mo.observe(headerContainer, { childList: true, subtree: true });
+  } else {
+    // fallback: try document header after a short delay
+    setTimeout(function () {
+      var h = document.querySelector("header");
+      if (h) applyHeaderBehavior(h);
+    }, 500);
+  }
+})();
+
 const labelObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
