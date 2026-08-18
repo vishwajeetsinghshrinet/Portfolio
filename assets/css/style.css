@@ -199,43 +199,193 @@ h6 {
 
 /* Contact Form  */
 
-h2 {
+.contact-section .contact-wrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.contact-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 4px #fff,
+    0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 14px rgba(255, 220, 100, 0.8);
+  opacity: 0;
+  animation:
+    starFloat var(--duration) ease-in-out infinite,
+    starGlow var(--glow-duration) ease-in-out infinite;
+}
+
+.contact-star.small {
+  width: 3px;
+  height: 3px;
+}
+
+.contact-star.medium {
+  width: 4px;
+  height: 4px;
+}
+
+.contact-star.large {
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes starFloat {
+  0% {
+    transform: translate3d(0, 15px, 0);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate3d(8px, -10px, 0);
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(-5px, -25px, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes starGlow {
+  0% {
+    box-shadow:
+      0 0 3px #fff,
+      0 0 6px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(255, 220, 100, 0.3);
+  }
+
+  50% {
+    box-shadow:
+      0 0 5px #fff,
+      0 0 12px rgba(255, 255, 255, 0.9),
+      0 0 22px rgba(255, 210, 70, 0.95),
+      0 0 35px rgba(255, 190, 50, 0.5);
+  }
+
+  100% {
+    box-shadow:
+      0 0 2px #fff,
+      0 0 5px rgba(255, 255, 255, 0.3),
+      0 0 8px rgba(255, 210, 70, 0.2);
+  }
+}
+
+.contact-section .contact-wrapper > *:not(.contact-stars) {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-section h2 {
   text-align: center;
 }
 
-form {
+.contact-section form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-input, select, textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+.contact-section .form-group {
+  position: relative;
 }
 
-textarea {
+.contact-section .form-group label {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.contact-section .form-group.active label {
+  visibility: visible;
+  opacity: 1;
+}
+
+.contact-section input,
+.contact-section select,
+.contact-section textarea {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background: var(--bs-white);
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  color: var(--bs-black);
+  min-height: 55px;
+  outline: none;
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+  opacity: 1;
+  color: var(--bs-border-color);
+  transition: opacity 0.3s ease;
+}
+
+.contact-section .form-group.active input::placeholder,
+.contact-section .form-group.active textarea::placeholder {
+  opacity: 0;
+}
+
+.contact-section textarea {
   min-height: 100px;
   resize: vertical;
 }
 
-button {
+.contact-section select {
+  cursor: pointer;
+}
+
+.contact-section button {
   padding: 12px;
   border: none;
-  background: black;
-  color: white;
+  background: var(--bs-white);
+  color: var(--bs-black);
   font-size: 16px;
   cursor: pointer;
   border-radius: 6px;
 }
 
-button:hover {
+.contact-section button:hover {
   opacity: 0.9;
 }
 
-#status {
+.contact-section #status {
   text-align: center;
   margin-top: 10px;
 }
@@ -345,4 +495,53 @@ button:hover {
 .fade-up,
 .fade-down {
   overflow: hidden;
+}
+
+/* Page Loader */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.loader-spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #ffffff;
+  animation: loader-spin 1s linear infinite;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.loader-text {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.page-loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
